@@ -1,0 +1,47 @@
+body{
+	background-color:#C7C7C7;
+}
+.carre1
+{
+	position : absolute;
+	vertical-align:middle;
+	text-align:center;
+	border:solid 3px;
+	width:50%;
+	height:50%;
+	top:0%;
+	left:0%;
+}
+.carre2
+{
+	position : absolute;
+	vertical-align:middle;
+	text-align:center;
+	border:solid 3px;
+	width:50%;
+	height:50%;
+	top:0%;
+	left:50%;
+}
+.carre3
+{
+	position : absolute;
+	vertical-align:middle;
+	text-align:center;
+	border:solid 3px;
+	width:50%;
+	height:50%;
+	top:50%;
+	left:0%;
+}
+.carre4
+{
+	position : absolute;
+	vertical-align:middle;
+	text-align:center;
+	border:solid 3px;
+	width:50%;
+	height:50%;
+	top:50%;
+	left:50%;
+}
