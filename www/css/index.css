@@ -6,42 +6,46 @@ body{
 	position : absolute;
 	vertical-align:middle;
 	text-align:center;
-	border:solid 3px;
-	width:50%;
-	height:50%;
+	border:solid 5px;
+	border-color:#FF0000;
+	width:49%;
+	height:49%;
 	top:0%;
-	left:0%;
+	left:0.25%;
 }
 .carre2
 {
 	position : absolute;
 	vertical-align:middle;
 	text-align:center;
-	border:solid 3px;
-	width:50%;
-	height:50%;
+	border:solid 5px;
+	border-color:#;
+	width:49%;
+	height:49%;
 	top:0%;
-	left:50%;
+	left:49.75%;
 }
 .carre3
 {
 	position : absolute;
 	vertical-align:middle;
 	text-align:center;
-	border:solid 3px;
-	width:50%;
-	height:50%;
-	top:50%;
-	left:0%;
+	border:solid 5px;
+	border-color:#;
+	width:49%;
+	height:49%;
+	top:49.5%;
+	left:0.25%;
 }
 .carre4
 {
 	position : absolute;
 	vertical-align:middle;
 	text-align:center;
-	border:solid 3px;
-	width:50%;
-	height:50%;
-	top:50%;
-	left:50%;
+	border:solid 5px;
+	border-color:#;
+	width:49%;
+	height:49%;
+	top:49.5%;
+	left:49.75%;
 }
