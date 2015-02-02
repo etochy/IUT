@@ -22,3 +22,19 @@ footer {
     text-align:center;
     padding:5px; 
 }
+
+a { /* Les liens qui ne sont pas sous le curseur. */
+	color: black; 
+	text-decoration:none; 
+	/*font-family:Arial,Verdana; */
+}
+a:hoover { /* Les liens lorsque le curseur est dessus. */
+	color: black;
+	text-decoration:none;
+	/*font-family:Arial,Verdana; */
+}
+a:visited { /* Les liens visités. */
+	color: black;
+	text-decoration:none; 
+	/*font-family:Arial,Verdana; */
+}
