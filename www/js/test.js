@@ -28,7 +28,7 @@
 	function explosion(){
 	//alert('kaboum!');
 	img = new Image();
-	img.src = "boum.jpg";
+	img.src = 'boum.jpg';
 	audio.play();
 	$('#pic').html(img);
 	interval2 = setInterval(function(){move()}, 10);
