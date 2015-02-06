@@ -5,10 +5,10 @@ header {
     padding:5px; 
 }
 choix {
-	width : 100%;
+	
     background-color:#eeeeee;
     float:left;
-    padding:5px; 
+	width:100%;
 	text-align:center;
 }
 section {
