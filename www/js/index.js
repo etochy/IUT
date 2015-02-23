@@ -1,3 +1,6 @@
+var annee="";
+var name="";
+
 function year() {   
 		
 	var d = new Date();
@@ -9,9 +12,8 @@ function year() {
 	newOpt = new Option("tous");  
 			
 	for(i=2005;i<=d+1;i++,selectLength ++){   
-	document.Register.year.options[selectLength ]  = newOpt; 
+	document.form0.year.options[selectLength ]  = newOpt; 
 		newOpt = new Option(i);         
-		
 	}	      
 }
 
@@ -41,4 +43,16 @@ function readXML(){
 	}
 	document.write("</table>");
 	
+}
+
+function searchName(form1) { 
+	name =document.form1.reNom.value; 
+} 
+
+function searchYear(form0){
+	annee=document.form0.year.value;
+}
+
+function actualisation(form2){
+	document.form2.output.value=name;
 }

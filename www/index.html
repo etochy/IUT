@@ -4,6 +4,7 @@
     <title>IUT Laval</title>
 	<script type="text/javascript" src="js/index.js"></script>
 	<link rel="stylesheet" type ="text/css" href="css/index.css"> 
+	
 </head>
 
 <body>
@@ -12,25 +13,31 @@
 <h1>IUT Laval</h1>
 </header>
 
-<choix>
-	
-   
+<choix>  
 	<body onLoad="year()">  
-	<form name="Register">
+	<form name="form0">
 	<label for="Date">Date :</label> 
-		<select name="year"></select>    
+		<select name="year" value=""></select>    
+	</form>
+	<input type="button" name="rech0" value="ok" onClick="searchYear(form0)">
+	
+	<form name="form1">
+	<label for="recherche">Rechercher :</label>
+	<input type="text" name="reNom" value="">
+	<input type="button" name="rech1" value="ok" onClick="searchName(form1)">
 	</form>
 	
-	<label for="recherche">Rechercher :</label>
-	<input type="texte" name="recherche"/>
-	<input type="submit" value="ok"/>
 </choix>
 
 <section>
-	<h1>Eleves diplomés</h1>
+	<h1>Eleves diplomes</h1>
 		
-	<body onLoad="readXML()">	
-		
+	<body onLoad="readXML()">
+
+	<FORM NAME="form2"> 
+		<INPUT TYPE="button" NAME="bouton" VALUE="Afficher" onClick="actualisation(form2)"><BR>
+		<INPUT TYPE="text" NAME="output" VALUE=""> Zone de texte de sortie 
+	</FORM>
 </section>
 
 <footer>
