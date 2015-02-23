@@ -38,3 +38,11 @@ a:visited { /* Les liens visités. */
 	text-decoration:none; 
 	/*font-family:Arial,Verdana; */
 }
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse:collapse;
+}
+th, td {
+	padding: 5px;
+}
