@@ -27,19 +27,25 @@ function readXML(){
 	{// code for IE6, IE5
 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.open("GET","res/cd_catalog.xml",false);
+	xmlhttp.open("GET","res/listediplomes.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML; 
 
-	document.write("<table><tr><th>Artist</th><th>Title</th></tr>");
-	var x=xmlDoc.getElementsByTagName("CD");
+	document.write("<table><tr><th>Departement</th><th>Diplome</th><th>Annee</th><th>Nom</th></tr>");
+	var x=xmlDoc.getElementsByTagName("TROMBI");
 	for (i=0;i<x.length;i++)
 	{ 
 		document.write("<tr><td>");
-		document.write(x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue);
+		document.write(x[i].getElementsByTagName("DEP")[0].childNodes[0].nodeValue);
 		document.write("</td><td>");
-		document.write(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
+		document.write(x[i].getElementsByTagName("DIPLOME")[0].childNodes[0].nodeValue);
+		document.write("</td><td>");
+		document.write(x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue);
+		document.write("</td><td>");
+		document.write(x[i].getElementsByTagName("ETU")[0].childNodes[0].nodeValue);
 		document.write("</td></tr>");
+		
+		
 	}
 	document.write("</table>");
 	

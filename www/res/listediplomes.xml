@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TROMBI>
+    <DEP Name="INFO" >
+       <DIPLOME Name="DUT INFO" >
+        
+            <YEAR Id="2007" >
+                <ETU LastName="DOE" Name="JOHN" Num="20130151" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>
+            
+            <YEAR Id="2008" >
+                <ETU LastName="DODO" Name="JOHN" Num="20130007" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>            
+
+        </DIPLOME>
+       
+       <DIPLOME Name="LP TQL" >
+        
+            <YEAR Id="2010" >
+                <ETU LastName="DOE" Name="JOHN" Num="20130151" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>
+            
+            <YEAR Id="2011" >
+                <ETU LastName="DODO" Name="JOHN" Num="20130007" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>            
+
+        </DIPLOME>
+       
+        
+    </DEP>
+    <DEP Name="Onche" >
+       <DIPLOME Name="DUT TINFO" >
+        
+            <YEAR Id="2007" >
+                <ETU LastName="DOE" Name="JOHN" Num="20130151" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>
+            
+            <YEAR Id="2008" >
+                <ETU LastName="DODO" Name="JOHN" Num="20130007" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>            
+
+        </DIPLOME>
+       
+       <DIPLOME Name="LP TQL" >
+        
+            <YEAR Id="2010" >
+                <ETU LastName="DOE" Name="JOHN" Num="20130151" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>
+            
+            <YEAR Id="2011" >
+                <ETU LastName="DODO" Name="JOHN" Num="20130007" >
+                 	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
+                	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
+                </ETU>
+        	</YEAR>            
+
+        </DIPLOME>
+       
+        
+    </DEP>
+</TROMBI>
