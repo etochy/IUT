@@ -39,7 +39,7 @@ a:visited { /* Les liens visités. */
 	/*font-family:Arial,Verdana; */
 }
 
-table {
+table, th, td {
 	border: 1px solid black;
 	border-collapse:collapse;
 }
