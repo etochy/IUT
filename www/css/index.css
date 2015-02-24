@@ -39,10 +39,12 @@ a:visited { /* Les liens visités. */
 	/*font-family:Arial,Verdana; */
 }
 
-table, th, td {
-	border: 1px solid black;
-	border-collapse:collapse;
+table {
+border: thin solid #000000;
+border-collapse: collapse ;
+
 }
-th, td {
-	padding: 5px;
+td, th {
+border: thin solid #000000;
+
 }
