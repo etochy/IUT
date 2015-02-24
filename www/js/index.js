@@ -54,5 +54,5 @@ function searchYear(form0){
 }
 
 function actualisation(form2){
-	document.form2.output.value=name;
+	document.form2.output.value=annee;
 }
