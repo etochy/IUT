@@ -4,11 +4,24 @@ header {
     text-align:center;
     padding:5px; 
 }
-infos {
-	text-align:center;
+
+photo_infos{
     background-color:#eeeeee;
-    float:left;
+	float:left;
 	width:100%;
+	text-align:center;
+}
+
+photo {
+	float:left;
+	width:50%;
+
+}
+
+infos {
+	
+    float:right;
+	width:50%;
 
 }
 ecole { 
@@ -33,17 +46,14 @@ footer {
 a { /* Les liens qui ne sont pas sous le curseur. */
 	color: black; 
 	text-decoration:none; 
-	/*font-family:Arial,Verdana; */
 }
 a:hoover { /* Les liens lorsque le curseur est dessus. */
 	color: black;
 	text-decoration:none;
-	/*font-family:Arial,Verdana; */
 }
 a:visited { /* Les liens visités. */
 	color: black;
 	text-decoration:none; 
-	/*font-family:Arial,Verdana; */
 }
 
 table {
@@ -54,4 +64,9 @@ border-collapse: collapse ;
 td, th {
 border: thin solid #000000;
 
+}
+
+.image {
+max-width: 80%;
+height:auto;
 }

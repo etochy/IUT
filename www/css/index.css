@@ -43,6 +43,7 @@ a:visited { /* Les liens visités. */
 table {
 border: thin solid #000000;
 border-collapse: collapse ;
+width:100%;
 
 }
 td, th {

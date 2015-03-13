@@ -6,7 +6,6 @@ var dip = "";
 var date = "";
 var bac = "";
 var ecole = "";
-var villeecole = "";
 var poste = "";
 var secteur = "";
 var entreprise = "";
@@ -375,7 +374,7 @@ function getAllbyNumBis(){
 		
 					bac = "Baccaulaur&eacuteat : "+y[j].getAttribute('Bac');
 				
-					ecole = "Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City');
+					ecole = "Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+", "+y[j].getAttribute('City');
 			
 				}
 			}
