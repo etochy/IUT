@@ -1,28 +1,27 @@
+var annee = "tous";
+var name = "";
+var num = "";
+var dep = "";
+var dip = "";
+var date = "";
+var bac = "";
+var ecole = "";
+var villeecole = "";
+var poste = "";
+var secteur = "";
+var entreprise = "";
+var villeentreprise = "";
+var typecontrat = "";
+var dateembauche = "";
+var mail = "";
 
-var annee="tous";
-var name = "Nom Prenom";
-var num = "Numero";
-var dep = "Departement";
-var dip = "Diplome";
-var date = "Date";
-var bac = "Bac";
-var ecole = "Ecole";
-var villeecole = "Ville Ecole";
-var poste = "Boulot";
-var secteur = "Secteur";
-var entreprise = "Entreprise";
-var villeentreprise = "Ville Entreprise";
-var typecontrat = "Type Contrat";
-var dateembauche = "Date Embauche";
-var mail = "Adresse mail";
 
 
-function year() {   
-		
+function year() {		
 	var d = new Date();
 	d = d.getFullYear();
 	var newOpt;   
-	var i=0;   
+	var i=0;
 	var selectLength =0;
 	var num = "";
 			
@@ -121,129 +120,383 @@ function readStudent(form2){
 	document.form2.output.value=num; 
 }
 
-function refresh(form1) { 
-	name =document.form1.reNom.value; 
-	annee=document.form0.year.value;
-	
-	var requete = name+"/"+annee;
-	window.location.href = "index.html?" + requete ;
+function refresh(form1) {
+        name = document.form1.reNom.value;
+        annee = document.form0.year.value;
 
-} 
+        var requete = name+"/"+annee;
+        window.location.href = "index.html?" + requete ;
+
+}
+
 
 function actualisation(num){
 	var requete = num;
 	window.location.href = "etu.html?" + requete ;
 }
 
+
+
 function getAll(){
-	
-	var requete = window.location.search.substring(1).split("/") ;
-	if (requete) { 
+    var requete = window.location.search.substring(1).split("/") ;
+	if (requete != "") {
 		name = requete[0];
 		annee = requete[1];
 	}
 	
+	if (name == "" && annee == "tous"){
+		getAllEmpty();
+	}
+	else if (name == "" && annee != "tous"){
+		getAllByAnnee();
+	}
+	else if (name != "" && annee == "tous"){
+		getAllByName();
+	}
+	else {
+	getAllByNameAndYear();
+	}
+}
+function getAllByNameAndYear(){
 	loadXMLFile();
-	document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    var x=xmlDoc.getElementsByTagName("ETU");
+    for (i=0;i<x.length;i++){
+		if(x[i].parentNode.getAttribute("Id") == annee){
+			if(x[i].getAttribute("LastName").toLowerCase() == name.toLowerCase()){
+				document.write("<tr>");
+				document.write("<td>");
+				document.write(x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
+				document.write("</td>");
+				document.write("<td>");
+				document.write(x[i].parentNode.parentNode.getAttribute('Name'));
+				document.write("</td>");
+				document.write("<td>");
+				document.write(x[i].parentNode.getAttribute('Id'));
+				document.write("</td>");
+				document.write("<td>");
+				document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+				document.write("</td>");
+				document.write("<td>");
+				document.write(x[i].getAttribute('Num'));
+				document.write("</td>");
+				document.write("</tr>");
+			}
+		}
+	}
+    document.write("</table>");
+}
+function getAllByName(){
+    loadXMLFile();
+    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    var x=xmlDoc.getElementsByTagName("ETU");
+    for (i=0;i<x.length;i++){
+		if(x[i].getAttribute("LastName").toLowerCase() == name.toLowerCase()){
+			document.write("<tr>");
+			document.write("<td>");
+			document.write(x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].parentNode.getAttribute('Id'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].getAttribute('Num'));
+			document.write("</td>");
+			document.write("</tr>");
+		}
+	}
+    document.write("</table>");
+}
+
+function getAllByAnnee(){
+    loadXMLFile();
+    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    var x=xmlDoc.getElementsByTagName("ETU");
+    for (i=0;i<x.length;i++){
+		if(x[i].parentNode.getAttribute("Id") == annee){
+			document.write("<tr>");
+			document.write("<td>");
+			document.write(x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].parentNode.getAttribute('Id'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+			document.write("</td>");
+			document.write("<td>");
+			document.write(x[i].getAttribute('Num'));
+			document.write("</td>");
+			document.write("</tr>");
+		}
+	}
+    document.write("</table>");
+}
+
+function getAllEmpty(){
+    loadXMLFile();
+    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    var x=xmlDoc.getElementsByTagName("ETU");
+    for (i=0;i<x.length;i++){
+		document.write("<tr>");
+        document.write("<td>");
+        document.write(x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
+        document.write("</td>");
+        document.write("<td>");
+        document.write(x[i].parentNode.parentNode.getAttribute('Name'));
+        document.write("</td>");
+        document.write("<td>");
+        document.write(x[i].parentNode.getAttribute('Id'));
+        document.write("</td>");
+        document.write("<td>");
+        document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+        document.write("</td>");
+        document.write("<td>");
+        document.write(x[i].getAttribute('Num'));
+        document.write("</td>");
+        document.write("</tr>");
+    }
+    document.write("</table>");
+}
+
+function getAllbyNum(){
+ 
+	var requete = window.location.search ;
+	if (requete) { 
+		num=requete.substring(1) ;
+	}
+	var Num = num;
+ 
+ 
+ 
+	loadXMLFile();
+	document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
 	var x=xmlDoc.getElementsByTagName("ETU");
 	for (i=0;i<x.length;i++){
-		document.write("<tr>");
-		document.write("<td>");
-		document.write(x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
-		document.write("</td>");
-		document.write("<td>");
-		document.write(x[i].parentNode.parentNode.getAttribute('Name'));
-		document.write("</td>");
-		document.write("<td>");
-		document.write(x[i].parentNode.getAttribute('Id'));
-		document.write("</td>");
-		document.write("<td>");
-   
-   
-		document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
-   
-		document.write("</td>");
-		document.write("<td>");
-		document.write(x[i].getAttribute('Num'));
-		document.write("</td>");
-		document.write("</tr>");
+		if(x[i].getAttribute('Num')==Num){
+			document.write("<tr>");
+			document.write("<td>");
+			document.write("D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Promotion : "+x[i].parentNode.getAttribute('Id'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name'));
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Num&eacutero : "+x[i].getAttribute('Num'));
+			document.write("</td>"); 
+			var y=xmlDoc.getElementsByTagName("BEFORE");
+			for (j=0;j<y.length;j++){
+				if(y[j].parentNode.getAttribute('Num')==Num){
+					document.write("<td>");
+					document.write("Date de naissance : "+y[j].getAttribute('BirthDate'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Baccaulaur&eacuteat : "+y[j].getAttribute('Bac'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City'));
+					document.write("</td>");
+				}
+			}
+			var z=xmlDoc.getElementsByTagName("AFTER");
+			for (h=0;h<z.length;h++){
+				if(z[h].parentNode.getAttribute('Num')==Num){
+					document.write("<td>");
+					document.write("Poste : "+z[h].getAttribute('poste'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Secteur : "+z[h].getAttribute('Secteur'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Entreprise : "+z[h].getAttribute('Entreprise'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Ville : "+z[h].getAttribute('Ville'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Type de contrat : "+z[h].getAttribute('TypeContrat'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Date d'embauche : "+z[h].getAttribute('DateEmbauche'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Email : "+z[h].getAttribute('Email'));
+					document.write("</td>");
+				}
+			}
+		}
 	}
 	document.write("</table>");
+}
+function getAllbyNumBis(){
+ 
+	var requete = window.location.search ;
+	if (requete) { 
+		num=requete.substring(1) ;
+	}
+	var a = true;
+	var Num = num;
+	loadXMLFile();
+	var x=xmlDoc.getElementsByTagName("ETU");
+	for (i=0;i<x.length;i++){
+		if(a){
+		if(x[i].getAttribute('Num')==Num){
+			
+			dep = "D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name');
+
+			dip = "Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
+
+			annee = "Promotion : "+x[i].parentNode.getAttribute('Id');
+		
+			name = "Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name');
 	
-	document.write("<p> nom :"+name+"</p>");
-	document.write("<p> annee :"+annee+"</p>");
+			num = "Num&eacutero : "+x[i].getAttribute('Num');
+	; 
+			var y=xmlDoc.getElementsByTagName("BEFORE");
+			for (j=0;j<y.length;j++){
+				if(y[j].parentNode.getAttribute('Num')==Num){
+				
+					date = "Date de naissance : "+y[j].getAttribute('BirthDate');
+		
+					bac = "Baccaulaur&eacuteat : "+y[j].getAttribute('Bac');
+				
+					ecole = "Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City');
+			
+				}
+			}
+			var z=xmlDoc.getElementsByTagName("AFTER");
+			for (h=0;h<z.length;h++){
+				if(z[h].parentNode.getAttribute('Num')==Num){
+				
+					poste ="Poste : "+z[h].getAttribute('poste');
+				
+					secteur = "Secteur : "+z[h].getAttribute('Secteur');
+					
+					entreprise = "Entreprise : "+z[h].getAttribute('Entreprise');
+					
+					villeentreprise = "Ville : "+z[h].getAttribute('Ville');
+				
+					type = "Type de contrat : "+z[h].getAttribute('TypeContrat');
+				
+					dateembauche = "Date d'embauche : "+z[h].getAttribute('DateEmbauche');
+			 
+					mail = "Email : "+z[h].getAttribute('Email');
+				
+				}
+			}
+			a = false;
+		}
+		}else if(x[i].getAttribute('Num')==Num){
+	
+			dip = dip+" et Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
+
+			annee = annee+" et Promotion : "+x[i].parentNode.getAttribute('Id');
+						
+		}
+	}
+
 }
-
-function getAllbyNum(choix){
-
-        var requete = window.location.search ;
-        if (requete) {
-                num=requete.substring(1) ;
-        }
-        var Num = num;
-
-
-
-        loadXMLFile();
-       
-        var x=xmlDoc.getElementsByTagName("ETU");
-        for (i=0;i<x.length;i++){
-                if(x[i].getAttribute('Num')==Num){
-                       
-						ducument.choix =document.write("<p>D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name')+"</p>");;
-                  
-                        ducument.section = document.write("<p>Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name')+"</p>");;
-                   
-						ducument.section = document.write("<p>Promotion : "+x[i].parentNode.getAttribute('Id')+"</p>");
-                
-						ducument.section = document.write("<p>Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</p>");
-        
-						ducument.section =  document.write("Num&eacutero : "+x[i].getAttribute('Num'));
-                 
-                        var y=xmlDoc.getElementsByTagName("BEFORE");
-                        for (j=0;j<y.length;j++){
-                                if(y[j].parentNode.getAttribute('Num')==Num){
-                                  
-                                        document.write("Date de naissance : "+y[j].getAttribute('BirthDate'));
-                                
-                                        document.write("Baccaulaur&eacuteat : "+y[j].getAttribute('Bac'));
-                                  
-                                        document.write("Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City'));
-                                    
-                                }
-                        }
-                        var z=xmlDoc.getElementsByTagName("AFTER");
-                        for (h=0;h<z.length;h++){
-                                if(z[h].parentNode.getAttribute('Num')==Num){
-                               
-                                        document.write("Poste : "+z[h].getAttribute('poste'));
-                                     
-                                        document.write("Secteur : "+z[h].getAttribute('Secteur'));
-                                     
-                                        document.write("Entreprise : "+z[h].getAttribute('Entreprise'));
-
-                                        document.write("Ville : "+z[h].getAttribute('Ville'));
-                                     
-                                        document.write("Type de contrat : "+z[h].getAttribute('TypeContrat'));
-                                     
-                                        document.write("Date d'embauche : "+z[h].getAttribute('DateEmbauche'));
-                                    
-                                        document.write("Email : "+z[h].getAttribute('Email'));
-                                     
-                                }
-                        }
-                }
-        }
-   
+function getAllbyNumBisdesecours(){
+ 
+	var requete = window.location.search ;
+	if (requete) { 
+		num=requete.substring(1) ;
+	}
+	var a = true;
+	var Num = num;
+	loadXMLFile();
+	document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
+	var x=xmlDoc.getElementsByTagName("ETU");
+	for (i=0;i<x.length;i++){
+		if(a){
+		if(x[i].getAttribute('Num')==Num){
+			document.write("<tr>");
+			document.write("<td>");
+			dep = "D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name');
+			document.write("</td>");
+			document.write("<td>");
+			dip = "Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
+			document.write("</td>");
+			document.write("<td>");
+			annee = "Promotion : "+x[i].parentNode.getAttribute('Id');
+			document.write("</td>");
+			document.write("<td>");
+			name = "Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name');
+			document.write("</td>");
+			document.write("<td>");
+			document.write("Num&eacutero : "+x[i].getAttribute('Num'));
+			document.write("</td>"); 
+			var y=xmlDoc.getElementsByTagName("BEFORE");
+			for (j=0;j<y.length;j++){
+				if(y[j].parentNode.getAttribute('Num')==Num){
+					document.write("<td>");
+					document.write("Date de naissance : "+y[j].getAttribute('BirthDate'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Baccaulaur&eacuteat : "+y[j].getAttribute('Bac'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City'));
+					document.write("</td>");
+				}
+			}
+			var z=xmlDoc.getElementsByTagName("AFTER");
+			for (h=0;h<z.length;h++){
+				if(z[h].parentNode.getAttribute('Num')==Num){
+					document.write("<td>");
+					document.write("Poste : "+z[h].getAttribute('poste'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Secteur : "+z[h].getAttribute('Secteur'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Entreprise : "+z[h].getAttribute('Entreprise'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Ville : "+z[h].getAttribute('Ville'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Type de contrat : "+z[h].getAttribute('TypeContrat'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Date d'embauche : "+z[h].getAttribute('DateEmbauche'));
+					document.write("</td>");
+					document.write("<td>");
+					document.write("Email : "+z[h].getAttribute('Email'));
+					document.write("</td>");
+				}
+			}
+			a = false;
+		}
+		}else{
+		if(x[i].getAttribute('Num')==Num){
+			document.write("</tr>");
+			document.write("<td>");
+			document.write("</td>");
+			document.write("<td>");
+			dip = dip+"et Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
+			document.write("</td>");
+			document.write("<td>");
+			year = year+"et Promotion : "+x[i].parentNode.getAttribute('Id');
+			document.write("</td>");
+			
+		}
+		}
+	}
+	document.write("</table>");
 }
-
-
-
-
-
-
-
-
-
-
-
