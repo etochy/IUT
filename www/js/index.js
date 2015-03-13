@@ -35,7 +35,7 @@ function year() {
 
 function getDetailsFromEleve(Num){
 	loadXMLFile();
-	document.write("<table><tr><th>DETAILS</th></tr>");
+	document.write("<table  class='tabcenter'><tr><th>DETAILS</th></tr>");
 	var x=xmlDoc.getElementsByTagName("BEFORE");
 	for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute('Num')==Num){
@@ -49,7 +49,7 @@ function getDetailsFromEleve(Num){
 }
 function getEleveFromPromotion(Dep, Diplome, Year){
 	loadXMLFile();
-	document.write("<table><tr><th>ELEVES</th></tr>");
+	document.write("<table  class='tabcenter'><tr><th>ELEVES</th></tr>");
 	var x=xmlDoc.getElementsByTagName("ETU");
 	for (i=0;i<x.length;i++){
 		if(x[i].parentNode.parentNode.parentNode.getAttribute('Name')==Dep && x[i].parentNode.parentNode.getAttribute('Name')==Diplome && x[i].parentNode.getAttribute('Id')==Year){
@@ -63,7 +63,7 @@ function getEleveFromPromotion(Dep, Diplome, Year){
 
 function getYearFromDiplome(Dep, Diplome){
 	loadXMLFile();
-	document.write("<table><tr><th>PROMOTION</th></tr>");
+	document.write("<table class='tabcenter'><tr><th>PROMOTION</th></tr>");
 	var x=xmlDoc.getElementsByTagName("YEAR");
 	for (i=0;i<x.length;i++){
 		if(x[i].parentNode.parentNode.getAttribute('Name')==Dep && x[i].parentNode.getAttribute('Name')==Diplome ){
@@ -76,7 +76,7 @@ function getYearFromDiplome(Dep, Diplome){
 }
 function getDiplomeFromDep(Dep){
 	loadXMLFile();
-	document.write("<table><tr><th>DIPLOME</th></tr>");
+	document.write("<table  class='tabcenter'><tr><th>DIPLOME</th></tr>");
 	var x=xmlDoc.getElementsByTagName("DIPLOME");
 	for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute('Name')==Dep){
@@ -89,7 +89,7 @@ function getDiplomeFromDep(Dep){
 }
 function chooseDep(){
 	loadXMLFile();
-	document.write("<table><tr><th>DEPARTEMENT</th></tr>");
+	document.write("<table  class='tabcenter'><tr><th>DEPARTEMENT</th></tr>");
 	var x=xmlDoc.getElementsByTagName("DEP");
 	for (i=0;i<x.length;i++){
 		document.write("<tr><td>");
@@ -159,7 +159,7 @@ function getAll(){
 }
 function getAllByNameAndYear(){
 	loadXMLFile();
-    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    document.write("<table  class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
     var x=xmlDoc.getElementsByTagName("ETU");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Id") == annee){
@@ -175,7 +175,7 @@ function getAllByNameAndYear(){
 				document.write(x[i].parentNode.getAttribute('Id'));
 				document.write("</td>");
 				document.write("<td>");
-				document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+				document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 				document.write("</td>");
 				document.write("<td>");
 				document.write(x[i].getAttribute('Num'));
@@ -188,7 +188,7 @@ function getAllByNameAndYear(){
 }
 function getAllByName(){
     loadXMLFile();
-    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
     var x=xmlDoc.getElementsByTagName("ETU");
     for (i=0;i<x.length;i++){
 		if(x[i].getAttribute("LastName").toLowerCase() == name.toLowerCase()){
@@ -203,7 +203,7 @@ function getAllByName(){
 			document.write(x[i].parentNode.getAttribute('Id'));
 			document.write("</td>");
 			document.write("<td>");
-			document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+			document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 			document.write("</td>");
 			document.write("<td>");
 			document.write(x[i].getAttribute('Num'));
@@ -216,7 +216,7 @@ function getAllByName(){
 
 function getAllByAnnee(){
     loadXMLFile();
-    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    document.write("<table  class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
     var x=xmlDoc.getElementsByTagName("ETU");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Id") == annee){
@@ -231,7 +231,7 @@ function getAllByAnnee(){
 			document.write(x[i].parentNode.getAttribute('Id'));
 			document.write("</td>");
 			document.write("<td>");
-			document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+			document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 			document.write("</td>");
 			document.write("<td>");
 			document.write(x[i].getAttribute('Num'));
@@ -244,7 +244,7 @@ function getAllByAnnee(){
 
 function getAllEmpty(){
     loadXMLFile();
-    document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
+    document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th></tr>");
     var x=xmlDoc.getElementsByTagName("ETU");
     for (i=0;i<x.length;i++){
 		document.write("<tr>");
@@ -258,7 +258,7 @@ function getAllEmpty(){
         document.write(x[i].parentNode.getAttribute('Id'));
         document.write("</td>");
         document.write("<td>");
-        document.write("<a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a>");
+        document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
         document.write("</td>");
         document.write("<td>");
         document.write(x[i].getAttribute('Num'));
@@ -279,7 +279,7 @@ function getAllbyNum(){
  
  
 	loadXMLFile();
-	document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
+	document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
 	var x=xmlDoc.getElementsByTagName("ETU");
 	for (i=0;i<x.length;i++){
 		if(x[i].getAttribute('Num')==Num){
@@ -420,7 +420,7 @@ function getAllbyNumBisdesecours(){
 	var a = true;
 	var Num = num;
 	loadXMLFile();
-	document.write("<table><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
+	document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
 	var x=xmlDoc.getElementsByTagName("ETU");
 	for (i=0;i<x.length;i++){
 		if(a){
