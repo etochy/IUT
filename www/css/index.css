@@ -41,16 +41,21 @@ a:visited { /* Les liens visités. */
 }
 
 table {
-border: thin solid #000000;
+
 border-collapse: collapse ;
 width:100%;
 
 }
 td, th {
-border: thin solid #000000;
+
+border: thin solid #999999;
 
 }
 .tabcenter{
    margin-left:auto;
    margin-right:auto;
 }
+body{
+font-family:Arial;
+}
+

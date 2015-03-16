@@ -1,5 +1,5 @@
 header {
-    background-color:black;
+    background-color:#000000;
     color:white;
     text-align:center;
     padding:5px; 
@@ -36,7 +36,7 @@ travail {
 	width:100%;
 }
 footer {
-    background-color:black;
+    background-color:#0000000;
     color:white;
     clear:both;
     text-align:center;
@@ -69,4 +69,7 @@ border: thin solid #000000;
 .image {
 max-width: 80%;
 height:auto;
+}
+body{
+font-family:Arial;
 }
