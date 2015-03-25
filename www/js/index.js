@@ -9,12 +9,15 @@ var ecole = "";
 var poste = "";
 var secteur = "";
 var entreprise = "";
-var villeentreprise = "";
-var typecontrat = "";
-var dateembauche = "";
+var villeEntreprise = "";
+var typeContrat = "";
+var dateEmbauche = "";
 var mail = "";
 
-
+var lastGrade="";
+var lastAnnee="";
+var lastSchool="";
+var lastTown="";
 
 function year() {		
 	var d = new Date();
@@ -328,10 +331,10 @@ function getAllbyNum(){
 					document.write("Ville : "+z[h].getAttribute('Ville'));
 					document.write("</td>");
 					document.write("<td>");
-					document.write("Type de contrat : "+z[h].getAttribute('TypeContrat'));
+					document.write("Type de contrat : "+z[h].getAttribute('typeContrat'));
 					document.write("</td>");
 					document.write("<td>");
-					document.write("Date d'embauche : "+z[h].getAttribute('DateEmbauche'));
+					document.write("Date d'embauche : "+z[h].getAttribute('dateEmbauche'));
 					document.write("</td>");
 					document.write("<td>");
 					document.write("Email : "+z[h].getAttribute('Email'));
@@ -388,11 +391,11 @@ function getAllbyNumBis(){
 					
 					entreprise = "Entreprise : "+z[h].getAttribute('Entreprise');
 					
-					villeentreprise = "Ville : "+z[h].getAttribute('Ville');
+					villeEntreprise = "Ville : "+z[h].getAttribute('Ville');
 				
-					type = "Type de contrat : "+z[h].getAttribute('TypeContrat');
+					type = "Type de contrat : "+z[h].getAttribute('typeContrat');
 				
-					dateembauche = "Date d'embauche : "+z[h].getAttribute('DateEmbauche');
+					dateEmbauche = "Date d'embauche : "+z[h].getAttribute('dateEmbauche');
 			 
 					mail = "Email : "+z[h].getAttribute('Email');
 				
@@ -470,10 +473,10 @@ function getAllbyNumBisdesecours(){
 					document.write("Ville : "+z[h].getAttribute('Ville'));
 					document.write("</td>");
 					document.write("<td>");
-					document.write("Type de contrat : "+z[h].getAttribute('TypeContrat'));
+					document.write("Type de contrat : "+z[h].getAttribute('typeContrat'));
 					document.write("</td>");
 					document.write("<td>");
-					document.write("Date d'embauche : "+z[h].getAttribute('DateEmbauche'));
+					document.write("Date d'embauche : "+z[h].getAttribute('dateEmbauche'));
 					document.write("</td>");
 					document.write("<td>");
 					document.write("Email : "+z[h].getAttribute('Email'));
@@ -499,3 +502,18 @@ function getAllbyNumBisdesecours(){
 	}
 	document.write("</table>");
 }
+
+
+function displayStudent(){
+	document.write("<ecole><b><p>IUT Laval :</p></b>");
+	document.write(annee);
+	document.write("<br>"+dep);
+	document.write("<br>"+dip+"<br><b>");
+	
+	document.write("<p>Ecole d'origine :</p></b>"+bac+","+ecole+"<br><br></ecole><travail><b>");
+	document.write("<p>Travail actuel :</p></b>"+poste+"<br>"+secteur+"<br>"+entreprise+"<br>"+villeEntreprise+"<br>"+type+"<br>"+dateEmbauche+"<br><br>"+"</travail>");
+	
+}
+
+
+
