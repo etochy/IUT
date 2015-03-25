@@ -18,6 +18,7 @@ var lastGrade="";
 var lastAnnee="";
 var lastSchool="";
 var lastTown="";
+var isAfter=false;
 
 function year() {		
 	var d = new Date();
@@ -268,85 +269,10 @@ function getAllEmpty(){
         document.write("</tr>");
     }
     document.write("</table>");
-}
+0}
 
-function getAllbyNum(){
- 
-	var requete = window.location.search ;
-	if (requete) { 
-		num=requete.substring(1) ;
-	}
-	var Num = num;
- 
- 
- 
-	loadXMLFile();
-	document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
-	var x=xmlDoc.getElementsByTagName("ETU");
-	for (i=0;i<x.length;i++){
-		if(x[i].getAttribute('Num')==Num){
-			document.write("<tr>");
-			document.write("<td>");
-			document.write("D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name'));
-			document.write("</td>");
-			document.write("<td>");
-			document.write("Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name'));
-			document.write("</td>");
-			document.write("<td>");
-			document.write("Promotion : "+x[i].parentNode.getAttribute('Id'));
-			document.write("</td>");
-			document.write("<td>");
-			document.write("Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name'));
-			document.write("</td>");
-			document.write("<td>");
-			document.write("Num&eacutero : "+x[i].getAttribute('Num'));
-			document.write("</td>"); 
-			var y=xmlDoc.getElementsByTagName("BEFORE");
-			for (j=0;j<y.length;j++){
-				if(y[j].parentNode.getAttribute('Num')==Num){
-					document.write("<td>");
-					document.write("Date de naissance : "+y[j].getAttribute('BirthDate'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Baccaulaur&eacuteat : "+y[j].getAttribute('Bac'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City'));
-					document.write("</td>");
-				}
-			}
-			var z=xmlDoc.getElementsByTagName("AFTER");
-			for (h=0;h<z.length;h++){
-				if(z[h].parentNode.getAttribute('Num')==Num){
-					document.write("<td>");
-					document.write("Poste : "+z[h].getAttribute('poste'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Secteur : "+z[h].getAttribute('Secteur'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Entreprise : "+z[h].getAttribute('Entreprise'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Ville : "+z[h].getAttribute('Ville'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Type de contrat : "+z[h].getAttribute('typeContrat'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Date d'embauche : "+z[h].getAttribute('dateEmbauche'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Email : "+z[h].getAttribute('Email'));
-					document.write("</td>");
-				}
-			}
-		}
-	}
-	document.write("</table>");
-}
 function getAllbyNumBis(){
- 
+	isAfter = false;
 	var requete = window.location.search ;
 	if (requete) { 
 		num=requete.substring(1) ;
@@ -368,7 +294,7 @@ function getAllbyNumBis(){
 			name = "Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name');
 	
 			num = "Num&eacutero : "+x[i].getAttribute('Num');
-	; 
+			
 			var y=xmlDoc.getElementsByTagName("BEFORE");
 			for (j=0;j<y.length;j++){
 				if(y[j].parentNode.getAttribute('Num')==Num){
@@ -384,7 +310,8 @@ function getAllbyNumBis(){
 			var z=xmlDoc.getElementsByTagName("AFTER");
 			for (h=0;h<z.length;h++){
 				if(z[h].parentNode.getAttribute('Num')==Num){
-				
+					isAfter = true;
+					
 					poste ="Poste : "+z[h].getAttribute('poste');
 				
 					secteur = "Secteur : "+z[h].getAttribute('Secteur');
@@ -393,12 +320,28 @@ function getAllbyNumBis(){
 					
 					villeEntreprise = "Ville : "+z[h].getAttribute('Ville');
 				
-					type = "Type de contrat : "+z[h].getAttribute('typeContrat');
+					type = "Type de contrat : "+z[h].getAttribute('TypeContrat');
 				
-					dateEmbauche = "Date d'embauche : "+z[h].getAttribute('dateEmbauche');
+					dateEmbauche = "Date d'embauche : "+z[h].getAttribute('DateEmbauche');
 			 
 					mail = "Email : "+z[h].getAttribute('Email');
 				
+				}
+			}
+			var last=xmlDoc.getElementsByTagName("CURRENTGRADE");
+			
+			for (k=0;k<last.length;k++){
+				if(last[k].parentNode.getAttribute('Num')==Num){
+					
+				
+					lastGrade = last[k].getAttribute('grade');
+		
+					lastAnnee = last[k].getAttribute('year');
+				
+					lastSchool =last[k].getAttribute('school');
+					
+					lastTown = last[k].getAttribute('town');
+			
 				}
 			}
 			a = false;
@@ -413,105 +356,30 @@ function getAllbyNumBis(){
 	}
 
 }
-function getAllbyNumBisdesecours(){
- 
-	var requete = window.location.search ;
-	if (requete) { 
-		num=requete.substring(1) ;
-	}
-	var a = true;
-	var Num = num;
-	loadXMLFile();
-	document.write("<table class='tabcenter'><tr><th>DEP</th><th>DIPLOME</th><th>PROMO</th><th>NOM</th><th>NUM</th><th>DATE DE NAISSANCE</th><th>BAC</th><th>ETABLISSEMENT</th><th>POSTE</th><th>SECTEUR</th><th>ENTREPRISE</th><th>VILLE</th><th>TYPE-CONTRAT</th><th>DATE-EMBAUCHE</th><th>EMAIL</th></tr>");
-	var x=xmlDoc.getElementsByTagName("ETU");
-	for (i=0;i<x.length;i++){
-		if(a){
-		if(x[i].getAttribute('Num')==Num){
-			document.write("<tr>");
-			document.write("<td>");
-			dep = "D&eacutepartement : "+x[i].parentNode.parentNode.parentNode.getAttribute('Name');
-			document.write("</td>");
-			document.write("<td>");
-			dip = "Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
-			document.write("</td>");
-			document.write("<td>");
-			annee = "Promotion : "+x[i].parentNode.getAttribute('Id');
-			document.write("</td>");
-			document.write("<td>");
-			name = "Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name');
-			document.write("</td>");
-			document.write("<td>");
-			document.write("Num&eacutero : "+x[i].getAttribute('Num'));
-			document.write("</td>"); 
-			var y=xmlDoc.getElementsByTagName("BEFORE");
-			for (j=0;j<y.length;j++){
-				if(y[j].parentNode.getAttribute('Num')==Num){
-					document.write("<td>");
-					document.write("Date de naissance : "+y[j].getAttribute('BirthDate'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Baccaulaur&eacuteat : "+y[j].getAttribute('Bac'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Lyc&eacutee : "+y[j].getAttribute('OriginSchool')+" "+y[j].getAttribute('City'));
-					document.write("</td>");
-				}
-			}
-			var z=xmlDoc.getElementsByTagName("AFTER");
-			for (h=0;h<z.length;h++){
-				if(z[h].parentNode.getAttribute('Num')==Num){
-					document.write("<td>");
-					document.write("Poste : "+z[h].getAttribute('poste'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Secteur : "+z[h].getAttribute('Secteur'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Entreprise : "+z[h].getAttribute('Entreprise'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Ville : "+z[h].getAttribute('Ville'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Type de contrat : "+z[h].getAttribute('typeContrat'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Date d'embauche : "+z[h].getAttribute('dateEmbauche'));
-					document.write("</td>");
-					document.write("<td>");
-					document.write("Email : "+z[h].getAttribute('Email'));
-					document.write("</td>");
-				}
-			}
-			a = false;
-		}
-		}else{
-		if(x[i].getAttribute('Num')==Num){
-			document.write("</tr>");
-			document.write("<td>");
-			document.write("</td>");
-			document.write("<td>");
-			dip = dip+"et Dipl&ocircme : "+x[i].parentNode.parentNode.getAttribute('Name');
-			document.write("</td>");
-			document.write("<td>");
-			year = year+"et Promotion : "+x[i].parentNode.getAttribute('Id');
-			document.write("</td>");
-			
-		}
-		}
-	}
-	document.write("</table>");
-}
-
 
 function displayStudent(){
 	document.write("<ecole><b><p>IUT Laval :</p></b>");
 	document.write(annee);
 	document.write("<br>"+dep);
 	document.write("<br>"+dip+"<br><b>");
+	document.write("<p>Ecole d'origine :</p></b>"+bac+","+ecole+"<br><br></ecole>");
+
+	document.write("<ecole><b>Dernier diplome / Diplome en cours :</b><br>");	
 	
-	document.write("<p>Ecole d'origine :</p></b>"+bac+","+ecole+"<br><br></ecole><travail><b>");
-	document.write("<p>Travail actuel :</p></b>"+poste+"<br>"+secteur+"<br>"+entreprise+"<br>"+villeEntreprise+"<br>"+type+"<br>"+dateEmbauche+"<br><br>"+"</travail>");
+	if(lastGrade == dip){
+		document.write("Diplome : "+lastGrade);
+	}
+	else{
+		document.write("Diplome : "+lastGrade+"<br>");
+		document.write("Annee : "+lastAnnee+"<br>");
+		document.write("Ecole : "+lastSchool+"<br>");
+		document.write("Ville : "+lastTown+"<br>");
+	}
+	
+	document.write("<br></ecole>");
+	
+	if(isAfter == true)
+		document.write("<travail><b><p>Travail actuel :</p></b>"+poste+"<br>"+secteur+"<br>"+entreprise+"<br>"+villeEntreprise+"<br>"+typeContrat+"<br>"+dateEmbauche+"<br><br>"+"</travail>");
 	
 }
 
