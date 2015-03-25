@@ -1,5 +1,5 @@
 header {
-    background-color:black;
+    background-color:#6469FF;
     color:white;
     text-align:center;
     padding:5px; 
@@ -17,7 +17,7 @@ section {
 	width:100%;
 }
 footer {
-    background-color:black;
+    background-color:#6469FF;
     color:white;
     clear:both;
     text-align:center;
@@ -41,21 +41,27 @@ a:visited { /* Les liens visités. */
 }
 
 table {
-
-border-collapse: collapse ;
+border-collapse: separate ;
+/*border-spacing:0px;*/
 width:100%;
 
 }
 td, th {
-
-border: thin solid #999999;
+border-radius:10px;
+border: thin solid #aaaaaa;
 
 }
+div {
+    border:1px solid #9ec3dd; 
+    border-radius: 10px; 
+    overflow:hidden; 
+}
+
 .tabcenter{
    margin-left:auto;
    margin-right:auto;
 }
 body{
-font-family:Arial;
+font-family:Myriad Pro;
 }
 
