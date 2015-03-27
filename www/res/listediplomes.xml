@@ -4,7 +4,7 @@
        <DIPLOME Name="DUT INFO" >
         
             <YEAR Id="2007" >
-                <ETU LastName="DOE" Name="JOHN" Num="20130151" >
+                <ETU LastName="DOE" Name="JOHN" Num="i130075" >
                  	<BEFORE BirthDate="01/01/1995" Bac="S" OriginSchool="Immac" City="Laval" />
 					<CURRENTGRADE grade="Ingénieur/Master/Licence/LP/doctorat" year = "2007/en cours " school="UniversiteXX/school YY" town="machin"/>
                 	<AFTER poste="Developpeur Android" Secteur="Informatique pour entreprise" Entreprise="Android4Dummies" Ville="Paris" TypeContrat="CDI" DateEmbauche="03/03/2014" Email="jd@jd.com" />
