@@ -1,6 +1,6 @@
 var annee = "tous";
 var name = "";
-var num = "";
+var num = "i130075";
 var dep = "";
 var dip = "";
 var date = "";
@@ -35,7 +35,7 @@ function year() {
 		newOpt = new Option(i);         
 	}	   
 
-	document.write(checkConnection());
+	alert("ta mere"+checkConnection());
 	
 }
 
@@ -482,23 +482,10 @@ function getDip(){
 	}
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-    var conn = checkConnection();
-    alert("Connection:"+conn);
-
-
-}
-function checkConnection(){
-	document.write("ta mere "+networkState);
-        var networkState;
-        var test = cordova.exec(
-                function(winParam) {networkState = winParam;},
-                function(error) {alert("Network Manager error: "+error);},
-                "NetworkStatus",
-                "getConnectionInfo",
-                []
-        );
-        return networkState;
+function getPic(){
+ src = "http://perso.univ-lemans.fr/~i131460/diplapp/photos/p-"+num+".jpg";
+ alert(src);
+img = document.createElement('img');
+ img.src = src;
+ document.write('<img src="'+src+'"alt="Picture">');
 }
