@@ -33,7 +33,10 @@ function year() {
 	for(i=2005;i<=d+1;i++,selectLength ++){   
 	document.form0.year.options[selectLength ]  = newOpt; 
 		newOpt = new Option(i);         
-	}	      
+	}	   
+
+	checkConnection();
+	
 }
 
 
@@ -448,6 +451,8 @@ function displayStudent(){
 }
 
 function checkConnection() {
+	alert("body");
+	
     var networkState = navigator.connection.type;
 
     var states = {};
@@ -460,7 +465,7 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    alert('Connection type: ' + states[networkState]);
+    alert("Connection type: " + states[networkState]);
 }
 
 
