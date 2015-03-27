@@ -451,7 +451,6 @@ function displayStudent(){
 }
 
 function checkConnection() {
-	alert("body");
 	
     var networkState = navigator.connection.type;
 
