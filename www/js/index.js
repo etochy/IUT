@@ -35,7 +35,7 @@ function year() {
 		newOpt = new Option(i);         
 	}	   
 
-	checkConnection();
+	document.write(checkConnection());
 	
 }
 
@@ -450,24 +450,55 @@ function displayStudent(){
 	
 }
 
-function checkConnection() {
-	
-    var networkState = navigator.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    alert("Connection type: " + states[networkState]);
+function getDep(){
+ loadXMLFile();
+    var x=xmlDoc.getElementsByTagName("DEP");
+    for (i=0;i<x.length;i++){
+  document.write(x[i].getAttribute("Name"));
+ }
+}
+function getDip(){
+ loadXMLFile();
+    var x=xmlDoc.getElementsByTagName("DIPLOME");
+    for (i=0;i<x.length;i++){
+		if(x[i].parentNode.getAttribute("Name") == dep)
+			document.write(x[i].getAttribute("Name"));
+	}
+ }
+function getDep(){
+	loadXMLFile();
+    var x=xmlDoc.getElementsByTagName("DEP");
+    for (i=0;i<x.length;i++){
+		document.write(x[i].getAttribute("Name"));
+	}
+}
+function getDip(){
+	loadXMLFile();
+    var x=xmlDoc.getElementsByTagName("DIPLOME");
+    for (i=0;i<x.length;i++){
+		if(x[i].parentNode.getAttribute("Name") == dep){
+			document.write(x[i].getAttribute("Name"));
+		}	
+	}
 }
 
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    var conn = checkConnection();
+    alert("Connection:"+conn);
 
 
-
-
+}
+function checkConnection(){
+	document.write("ta mere "+networkState);
+        var networkState;
+        var test = cordova.exec(
+                function(winParam) {networkState = winParam;},
+                function(error) {alert("Network Manager error: "+error);},
+                "NetworkStatus",
+                "getConnectionInfo",
+                []
+        );
+        return networkState;
+}
