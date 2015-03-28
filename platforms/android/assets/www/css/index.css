@@ -1,0 +1,67 @@
+header {
+    background-color:#1D728B;
+    color:white;
+    text-align:center;
+    padding:5px; 
+}
+choix {
+	
+    background-color:#eeeeee;
+    float:left;
+	width:100%;
+	text-align:center;
+}
+section {
+	text-align:center;
+    float:left;
+	width:100%;
+}
+footer {
+    background-color:#1D728B;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+
+a { /* Les liens qui ne sont pas sous le curseur. */
+	color: black; 
+	text-decoration:none; 
+	/*font-family:Arial,Verdana; */
+}
+a:hoover { /* Les liens lorsque le curseur est dessus. */
+	color: black;
+	text-decoration:none;
+	/*font-family:Arial,Verdana; */
+}
+a:visited { /* Les liens visités. */
+	color: black;
+	text-decoration:none; 
+	/*font-family:Arial,Verdana; */
+}
+
+table {
+border-collapse: separate ;
+/*border-spacing:0px;*/
+width:100%;
+
+}
+td, th {
+border-radius:10px;
+border: thin solid #aaaaaa;
+
+}
+div {
+    border:1px solid #9ec3dd; 
+    border-radius: 10px; 
+    overflow:hidden; 
+}
+
+.tabcenter{
+   margin-left:auto;
+   margin-right:auto;
+}
+body{
+font-family:Myriad Pro;
+}
+
