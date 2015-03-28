@@ -34,12 +34,8 @@ function year() {
 	document.form0.year.options[selectLength ]  = newOpt; 
 		newOpt = new Option(i);         
 	}	   
-
-	alert("ta mere"+checkConnection());
 	
 }
-
-checkConnection();
 
 function loadXMLFile(){
 	if (window.XMLHttpRequest)
@@ -73,7 +69,7 @@ function refresh(form1) {
 
 
 function actualisation(num){
-	alert("t'es une pute");
+	alert(checkConnection());
 	window.location.href = "etu.html?"+num;
 }
 
@@ -504,7 +500,7 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    alert('Connection type: ' + states[networkState]);
+    return states[networkState];
 }
 
 
