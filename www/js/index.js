@@ -71,7 +71,7 @@ function refresh(form1) {
 function actualisation(num){
 	
 	alert("ta mere : "+num);
-	alert(checkConnection());
+	//alert(checkConnection());
 	window.location.href = "etu.html?"+num;
 }
 
@@ -359,7 +359,7 @@ function getAllbyNumBis(){
 		
 			name = "Nom : "+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name');
 	
-			num = "Num&eacutero : "+x[i].getAttribute('Num');
+			num = x[i].getAttribute('Num');
 			
 			var y=xmlDoc.getElementsByTagName("BEFORE");
 			for (j=0;j<y.length;j++){
@@ -457,7 +457,7 @@ function getDep(){
  }
 }
 function getDip(){
- loadXMLFile();
+	loadXMLFile();
     var x=xmlDoc.getElementsByTagName("DIPLOME");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Name") == dep)
