@@ -2,10 +2,10 @@
 <widget id="com.esteban.workshop" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>IUT</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Affiche les eleves diplomés de l'iut
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author>
+       Esteban Launay, Alexis Karasev
     </author>
     <content src="index.html" />
     <access origin="*" />
