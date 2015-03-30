@@ -69,6 +69,8 @@ function refresh(form1) {
 
 
 function actualisation(num){
+	
+	alert("ta mere : "+num);
 	alert(checkConnection());
 	window.location.href = "etu.html?"+num;
 }
