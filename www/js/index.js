@@ -19,6 +19,7 @@ var lastAnnee="";
 var lastSchool="";
 var lastTown="";
 var isAfter=false;
+var Array;
 
 function year() {		
 	var d = new Date();
@@ -69,10 +70,9 @@ function refresh(form1) {
 
 
 function actualisation(num){
-	
 	alert("ta mere : "+num);
 	//alert(checkConnection());
-	window.location.href = "etu.html?"+num;
+	window.location.href = "etu.html?"+Array[num];
 }
 
 
@@ -327,7 +327,8 @@ function getAllEmpty(){
         document.write(x[i].parentNode.getAttribute('Id'));
         document.write("</td>");
         document.write("<td>");
-        document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+		Array[i] = x[i].getAttribute('Num');
+        document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
         document.write("</td>");
         document.write("<td>");
         document.write(x[i].getAttribute('Num'));
