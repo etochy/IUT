@@ -1,6 +1,6 @@
 var annee = "tous";
 var name = "";
-var num ;
+var num="" ;
 var dep = "";
 var dip = "";
 var date = "";
